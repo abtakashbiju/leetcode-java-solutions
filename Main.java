@@ -1,27 +1,20 @@
 import java.util.*;
 public class Main {
   public static void main(String[] args){
-    
-    int[] nums = {3, 2, 4};
-    int target = 6;
-    int[] result = targetFinder(nums, target);
-    System.out.println(Arrays.toString(result));
-  }
-    
-  public static int[] targetFinder(int[] arr, int aim){
-    Map<Integer, Integer> map = new HashMap<>();
-    for(int i=0; i<arr.length; i++){
-      int diff = aim-arr[i];
+    int[] prices = {7};      
+    int min = Integer.MAX_VALUE;
+    int profit = 0;
 
-      if(map.containsKey(diff)){
-        return new int[] {map.get(diff), i};
+    for(int price:prices){
+      if(price<min){
+        min=price;
       }
-
-      map.put(arr[i], i);
+      if(price-min>profit){
+        profit=price-min;
+      }
     }
-    return new int[]{};
-  }
 
+    System.out.println(profit);
     
-  
+  }
 }
